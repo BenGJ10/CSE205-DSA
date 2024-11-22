@@ -55,7 +55,7 @@ Node* deleteNode(Node* root, int val){
         root->left = deleteNode(root->left, val);
     } else if(val > root->data){
         root->right = deleteNode(root->right, val);
-    } else{
+    } else{ // If root == val
         // If left child is empty
         if(root->left == nullptr){
             Node* temp = root->right;
@@ -68,8 +68,10 @@ Node* deleteNode(Node* root, int val){
             return temp;
         } 
         // If both left and right child is present
-        Node* temp = findMin(root->right);
+        Node* temp = findMin(root->right);  // Finding the smallest element in the right subtree
+        // Replacing the element to delete with the inorder successor
         root->data = temp->data;
+        // Deleting the inorder successor from the right subtree recursively
         root->right = deleteNode(root->right, temp->data);
         }
     return root;
