@@ -7,12 +7,13 @@ void breadthFirstSearch(int start, int vertices, int adjMatrix[10][10], int bfs[
     int front = 0, rear = 0;
 
     queue[rear++] = start;
-    visited[start] = 0;
+    visited[start] = true;
 
     while(front < rear){
         int node = queue[front++];
         bfs[rear++] = node;
-
+        bfsSize++;
+        
         for(int i = 0; i < vertices; i++){
             if(!visited[i] && adjMatrix[node][i] == 1){
                 queue[rear++] = i;
