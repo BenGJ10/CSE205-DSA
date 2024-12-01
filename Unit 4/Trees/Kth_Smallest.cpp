@@ -46,6 +46,9 @@ int main(){
     int data, k;
     while(true){
         cin >> data;
+        if(data == -1){
+            break;
+        }
         root = insertNode(root, data);
     }
     cin >> k;
